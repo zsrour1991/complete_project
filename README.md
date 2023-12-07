@@ -1,8 +1,8 @@
-# flutter_complete_project
+# flutter complete project
 
 A new Flutter project.
 
-## Getting Started
+## 🎨 Design Pattern
 
 This project is a starting point for a Flutter application.
 
