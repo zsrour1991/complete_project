@@ -8,6 +8,6 @@ class HorizontalPadding extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(width: percentage* ScreenUtil().scaleWidth);
+    return SizedBox(width: percentage.w);
   }
 }

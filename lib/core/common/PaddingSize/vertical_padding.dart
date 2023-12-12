@@ -8,6 +8,6 @@ class VerticalPadding extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(height: percentage * ScreenUtil().scaleHeight);
+    return SizedBox(height: percentage.h);
   }
 }
