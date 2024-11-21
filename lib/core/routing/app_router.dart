@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_complete_project/core/di/dependency_injection.dart';
 import 'package:flutter_complete_project/core/routing/routes.dart';
+import 'package:flutter_complete_project/features/home/logic/cubit/home_cubit.dart';
 import 'package:flutter_complete_project/features/home/ui/home_screen.dart';
 import 'package:flutter_complete_project/features/login/logic/cubit/login_cubit.dart';
 import 'package:flutter_complete_project/features/login/ui/login_screen.dart';
@@ -13,7 +14,7 @@ import 'package:flutter_complete_project/features/signup/ui/sign_up_screen.dart'
 
 class AppRouter {
   // this arguments to be passed in any screen like this ( arguments as ClassName)
-  Route generateRoute(RouteSettings settings) {
+  Route? generateRoute(RouteSettings settings) {
     final arguments = settings.arguments;
     switch (settings.name) {
       case Routes.onBoardingScreen:
@@ -26,7 +27,7 @@ class AppRouter {
 
       case Routes.homeScreen:
         return MaterialPageRoute(builder: (_) =>  BlocProvider(
-            create: (context)=> getIt<LoginCubit>(),
+            create: (context)=> HomeCubit(getIt()),
             child: const HomeScreen()));
 
       case Routes.signUpScreen:
@@ -38,7 +39,7 @@ class AppRouter {
         );
 
       default:
-        return MaterialPageRoute(builder: (_) => const OnBoardingScreen());
+        return null;
     }
   }
 }
