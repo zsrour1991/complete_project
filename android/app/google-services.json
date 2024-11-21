@@ -2,7 +2,7 @@
   "project_info": {
     "project_number": "471595328435",
     "project_id": "flutter-app-distribution-5631e",
-    "storage_bucket": "flutter-app-distribution-5631e.appspot.com"
+    "storage_bucket": "flutter-app-distribution-5631e.firebasestorage.app"
   },
   "client": [
     {
@@ -10,6 +10,25 @@
         "mobilesdk_app_id": "1:471595328435:android:21650ef6b1cc07b91961c6",
         "android_client_info": {
           "package_name": "com.example.flutter_complete_project"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfvmqZ6A3IwKH2Sbpfx8LLieou_GcBzWE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:471595328435:android:85852f4a376fc5901961c6",
+        "android_client_info": {
+          "package_name": "com.example.flutter_complete_project.dev"
         }
       },
       "oauth_client": [],
