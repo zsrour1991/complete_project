@@ -1,4 +1,6 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_complete_project/core/helpers/constants.dart';
+import 'package:flutter_complete_project/core/helpers/shared_pref_helper.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 class DioFactory {
@@ -22,11 +24,17 @@ class DioFactory {
       return dio!;
     }
   }
-static void addDioHeaders(){
+static Future<void> addDioHeaders() async {
     dio?.options.headers={
-      'Accept':'application/json'
+      'Accept':'application/json',
+      'Authorization': 'Bearer ${await SharedPrefHelper.getString(SharedPrefKeys.userToken)}'
     };
 }
+  static void setTokenIntoHeaderAfterLogin(String token) {
+    dio?.options.headers = {
+      'Authorization': 'Bearer $token',
+    };
+  }
   static void addDioInterceptor() {
     dio?.interceptors.add(
       PrettyDioLogger(
