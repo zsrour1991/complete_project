@@ -33,7 +33,7 @@ class DoctorsListViewItem extends StatelessWidget {
               fit: BoxFit.cover,
             ),
           ),
-          verticalSpace(16),
+          horizentalSpace(16),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

@@ -64,7 +64,8 @@ dependencies:
   firebase_core: ^3.8.0
   # to load and cache network images
   cached_network_image: ^3.4.1
-
+  # provides API to store data in secure storage
+  flutter_secure_storage: ^9.2.2
 dependency_overrides:
   meta: ^1.15.0
 

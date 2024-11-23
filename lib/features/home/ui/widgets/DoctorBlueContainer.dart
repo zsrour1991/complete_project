@@ -25,6 +25,7 @@ class DoctorBlueContainer extends StatelessWidget {
                     image: AssetImage(Images.homeBluePattern),
                     fit: BoxFit.cover)),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   'Book and\nschedule with\nnearest doctor',
