@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_complete_project/core/helpers/spacing.dart';
 import 'package:flutter_complete_project/features/home/ui/widgets/DoctorBlueContainer.dart';
 import 'package:flutter_complete_project/features/home/ui/widgets/DoctorSpecialitySeeAll.dart';
+import 'package:flutter_complete_project/features/home/ui/widgets/doctors_list/doctros_bloc_builder.dart';
 import 'package:flutter_complete_project/features/home/ui/widgets/home_top_bar.dart';
-import 'package:flutter_complete_project/features/home/ui/widgets/specializations_and_doctors_bloc_builder.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_complete_project/features/home/ui/widgets/specializations_list/specializations_bloc_builder.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -27,10 +27,12 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               const HomeTopBar(),
               const DoctorBlueContainer(),
-              verticalSpace(16.h),
+              verticalSpace(16),
               const DoctorsSpecialitySeeAll(),
-              verticalSpace(16.h),
-              const SpecializationsAndDoctorsBlocBuilder()
+              verticalSpace(16),
+              const SpecializationsBlocBuilder(),
+              verticalSpace(6),
+              const DoctorsBlocBuilder()
 
             ],
           ),
