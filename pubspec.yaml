@@ -66,6 +66,8 @@ dependencies:
   cached_network_image: ^3.4.1
   # provides API to store data in secure storage
   flutter_secure_storage: ^9.2.2
+  # easy way to add shimmer effect
+  shimmer: ^3.0.0
 dependency_overrides:
   meta: ^1.15.0
 
