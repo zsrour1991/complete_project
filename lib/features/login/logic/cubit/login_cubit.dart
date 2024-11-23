@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_complete_project/core/helpers/constants.dart';
 import 'package:flutter_complete_project/core/helpers/shared_pref_helper.dart';
 import 'package:flutter_complete_project/core/metworking/dio_factory.dart';
@@ -30,7 +30,7 @@ class LoginCubit extends Cubit<LoginState> {
    
   }
   saveToken(String token)async{
-  await SharedPrefHelper.setData(SharedPrefKeys.userToken, token);
+  await SharedPrefHelper.setSecuredString(SharedPrefKeys.userToken, token);
   DioFactory.setTokenIntoHeaderAfterLogin(token);
   }
 }
