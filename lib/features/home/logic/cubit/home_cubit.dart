@@ -34,7 +34,7 @@ class HomeCubit extends Cubit<HomeState> {
       emit(HomeState.doctorsSuccess(doctorsList));
     }
     else{
-      emit(HomeState.doctorsError(ErrorHandler.handle('No Doctors Fount')));
+      emit(HomeState.doctorsError());
     }
   }
   /// returns the list of doctors based on the specialization id
