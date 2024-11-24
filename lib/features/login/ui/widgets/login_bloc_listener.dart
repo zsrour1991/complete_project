@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_complete_project/core/helpers/extensions.dart';
+import 'package:flutter_complete_project/core/metworking/api_error_model.dart';
 import 'package:flutter_complete_project/core/routing/routes.dart';
 import 'package:flutter_complete_project/core/theming/colors.dart';
 import 'package:flutter_complete_project/core/theming/styles.dart';
@@ -14,9 +15,9 @@ class LoginBlocListener extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocListener<LoginCubit, LoginState>(
         listenWhen: (previous, current) =>
-            current is Loading ||current is Success || current is Error,
+            current is LoginLoading ||current is LoginSuccess || current is Error,
         listener: (context, state) {
-          state.whenOrNull(loading: () {
+          state.whenOrNull(loginLoading: () {
             showDialog(
                 context: context,
                 builder: (context) => const Center(
@@ -24,18 +25,18 @@ class LoginBlocListener extends StatelessWidget {
                         color: ColorsManager.mainBlue,
                       ),
                     ));
-          }, success: (loginResponse) {
+          }, loginSuccess: (loginResponse) {
             context.pop();
             context.pushNamed(Routes.homeScreen);
-          }, error: (error) {
-          setupErrorState(context,error);
+          }, loginError: (apiErrorModel) {
+          setupErrorState(context,apiErrorModel);
           });
         },
         child: const SizedBox.shrink());
   }
 }
 
-void setupErrorState(BuildContext context, String error) {
+void setupErrorState(BuildContext context, ApiErrorModel apiErrorModel) {
   context.pop();
   showDialog(
       context: context,
@@ -46,7 +47,7 @@ void setupErrorState(BuildContext context, String error) {
           size: 32,
         ),
         content: Text(
-          error,
+          apiErrorModel.getAllErrorMessages(),
           style: TextStyles.font15DarkBlueMedium,
         ),
         actions: [
