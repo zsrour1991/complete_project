@@ -17,15 +17,15 @@ class LoginCubit extends Cubit<LoginState> {
   TextEditingController passwordController = TextEditingController();
   final formKey = GlobalKey<FormState>();
   Future<void> emitLoginStates(LoginRequestBody loginRequestBody) async {
-    emit(const LoginState.loading());
+    emit(const LoginState.loginLoading());
     final response= await loginrepo.login(loginRequestBody);
     response.when(
         success: (loginResponse)async{
          await saveToken(loginResponse.userData?.token??'');
-          emit(LoginState.success(loginResponse));
+          emit(LoginState.loginSuccess(loginResponse));
         },
-        failure: (error){
-          emit(LoginState.error(error: error.apiErrorModel.message?? ''));
+        failure: (apiErrorModel){
+          emit(LoginState.loginError(apiErrorModel));
         });
    
   }
